@@ -1,0 +1,3 @@
+{
+  "ignorePatterns": ["/config", "/node_modules"]
+}
