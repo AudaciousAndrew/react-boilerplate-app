@@ -1,7 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
+import { Button } from '@progress/kendo-react-buttons';
 import "styles/base.scss";
 
-const App = () => <h1>Hello world!</h1>;
+const App = () => {
+    return (
+        <>
+            <h1>Hello world!</h1>
+            <Button primary={true}>Primary</Button>
+        </>
+    );
+}
 
 render(<App />, document.getElementById("root"));
