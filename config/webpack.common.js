@@ -5,7 +5,7 @@ const paths = require("./paths");
 const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
-  target: "web",
+  target: ["web", "es5"],
   entry: {
     entry: paths.appEntryJS
   },
@@ -46,6 +46,29 @@ module.exports = {
           },
           { loader: "sass-loader" }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              fallback: "file-loader"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              generator: (content) => svgToMiniDataURI(content.toString())
+            }
+          }
+        ]
       }
     ]
   },
@@ -56,7 +79,7 @@ module.exports = {
       filename: "index.html"
     }),
     new MiniCssExtractPlugin({
-      filename: isDev ? "[name].css" : "[name].[contenthash].css"
+      filename: isDev ? "styles.css" : "styles.[contenthash].css"
     })
   ]
 };
