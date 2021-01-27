@@ -9,11 +9,11 @@ module.exports = merge(common, {
   mode: "production",
   output: {
     path: paths.appBuild,
-    filename: "bundle.js"
+    filename: "bundle.[contenthash].js"
   },
   plugins: [new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })],
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         parallel: true,
