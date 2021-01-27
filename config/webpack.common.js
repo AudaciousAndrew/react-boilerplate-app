@@ -31,8 +31,11 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: false,
-              importLoaders: 2
+              importLoaders: 2,
+              modules: {
+                auto: /styles/,
+                localIdentName: `${ isDev ? '[path][name]__[local]' : '[hash:base64]'}`
+              }
             }
           },
           {

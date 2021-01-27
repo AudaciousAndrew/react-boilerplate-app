@@ -1,6 +1,5 @@
 @import "typography.scss";
 @import "variables.scss";
-@import "~@progress/kendo-theme-bootstrap/scss/button/_index.scss";
 
 *,
 *::after,
@@ -19,6 +18,10 @@ body {
   box-sizing: border-box;
   min-width: 320px;
   font-size: 1.6rem;
+
+  [class~="k-button"] {
+    font-size: 2rem;
+  }
 }
 
 html {
