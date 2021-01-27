@@ -22,7 +22,6 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/i,
-        exclude: /node_modules/,
         use: [
           isDev
             ? "style-loader"
@@ -32,7 +31,7 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: false,
               importLoaders: 2
             }
           },

@@ -13,7 +13,7 @@ module.exports = merge(common, {
   },
   plugins: [new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })],
   optimization: {
-    minimize: false,
+    minimize: true,
     minimizer: [
       new TerserPlugin({
         parallel: true,
